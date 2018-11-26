@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>lcd</title>
+    <script>
+       
+        function code (num,tag){
+            if(tag===1)
+            {
+                return {
+                    0:'._.',
+                    1:'...',
+                    2:'._.',
+                    3:'._.',
+                    4:'...',
+                    5:'._.',
+                    6:'._.',
+                    7:'._.',
+                    8:'._.',
+                    9:'._.',
+                }[num];
+
+            }else if(tag===2){
+
+                return {
+                    0:'|.|',
+                    1:'..|',
+                    2:'._|',
+                    3:'._|',
+                    4:'|_|',
+                    5:'|_.',
+                    6:'|_.',
+                    7:'..|',
+                    8:'|_|',
+                    9:'|_|',
+                }[num];
+            }
+            else if(tag===3){
+
+                return {
+                    0:'|_|',
+                    1:'..|',
+                    2:'|_.',
+                    3:'._|',
+                    4:'..|',
+                    5:'._|',
+                    6:'|_|',
+                    7:'..|',
+                    8:'|_|',
+                    9:'..|',
+                }[num];
+            }
+        }
+        function sum (){
+            var number = document.getElementById('num').value;
+            var _num = number.split('');
+            var str = '';
+            _num.forEach(function(val,index){
+                str += code(~~val,1);
+                str +=' ';
+            });
+            str +='\n';
+
+            _num.forEach(function(val,index){
+                str += code(~~val,2);
+                str +=' ';
+            });
+            str +='\n';
+
+            _num.forEach(function(val,index){
+                str += code(~~val,3);
+                str +=' ';
+            });
+            str +='\n';
+            console.log(str);
+        }
+    </script>
+</head>
+
+<body>
+    please input the number:<input id="num" type="text">
+    <br>
+   
+    <button onclick="sum()">submit</button>
+   
+</body>
+</html>
